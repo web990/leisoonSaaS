@@ -4,10 +4,15 @@
 LeisoonSaaS是基于thinkphp5.1开发的多租户开发框架。权限管理、用户管理、Web站点（单站点、Web集群系统）、单点登录（第三方登录）、API管理、CRM系统、流程系统、消息系统、邮件系统、日志系统等企业内部应用系统都可以基于LeisoonSaaS一套基础平台完成，避免复杂的系统维护，让程序员从此只维护一套系统。目标让开发者快速开发、易于维护的系统平台。
     系统采用前后端分离模式，LeisoonSaaS提供API接口（JWT token认证），UI管理端使用LayuiAdmin2.1 单页面版。
 
+## 演示系统
+- SaaS-Admin：http://demo.leisoon.com
+- 用户名：admin 密码：admin888
+- 交流QQ群: [13942255]
+<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=8bfa7fce0390385f5092ed071efc475ca91618beb969c4e76b58665dcbfc7ea1"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="LeisoonSaaS" title="LeisoonSaaS"></a>
 
 # 开源进度
 - 系统框架代码：由于是从项目中剥离需要时间整理，有需要先了解学习的同学请先加入QQ群: [13942255]
-- Demo站点：整理中。。。
+- Demo站点：已完成
 - 系统文档：整理中。。。
 
 
