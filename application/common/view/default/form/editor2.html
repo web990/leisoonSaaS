@@ -1,0 +1,14 @@
+<textarea name="{$field}" id="{$field}" style="width: 100%;">{$value}</textarea>
+<link href="__PUBLIC__plugins/umeditor/themes/default/css/umeditor.css" type="text/css" rel="stylesheet">
+{js href="__PUBLIC__plugins/umeditor/third-party/jquery.min.js" /}
+{js href="__PUBLIC__plugins/umeditor/umeditor.config.js" /}
+{js href="__PUBLIC__plugins/umeditor/umeditor.min.js" /}
+{js href="__PUBLIC__plugins/umeditor/lang/zh-cn/zh-cn.js" /}
+<script type="text/javascript">
+    $(function(){
+        var um = UM.getEditor('{$field}', {
+            imageUrl: "{:url('home/upload/umeditor')}",
+            imagePath:"{:BASE_PATH}"
+        });
+    });
+</script>

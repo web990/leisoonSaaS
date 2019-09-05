@@ -1,0 +1,10 @@
+<div class="input-group">
+	<input type="text" class="form-control" id="{$field}" name="{$field}" value="{$value|default=date('Y-m-d')}" readonly0 size="15" style="">
+	<span class="input-group-addon"><i class="fa fa-th"></i></span>
+</div>
+<script>
+$('#{$field}').fdatepicker({
+	format: 'yyyy-mm-dd',
+	pickTime: true
+});
+</script>

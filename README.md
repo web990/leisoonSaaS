@@ -2,7 +2,7 @@
 
 #### 介绍
 LeisoonSaaS是基于thinkphp5.1开发的多租户开发框架。权限管理、用户管理、Web站点（单站点、Web集群系统）、单点登录（第三方登录）、API管理、CRM系统、流程系统、消息系统、邮件系统、日志系统等企业内部应用系统都可以基于LeisoonSaaS一套基础平台完成，避免复杂的系统维护，让程序员从此只维护一套系统。目标让开发者快速开发、易于维护的系统平台。
-    系统采用前后端分离模式，LeisoonSaaS提供API接口（JWT token认证），UI管理端使用LayuiAdmin2.1 单页面版。
+    系统采用前后端分离模式，LeisoonSaaS提供API接口（JWT token认证），配合<a href="https://gitee.com/websky/leisoonAdmin">LeisoonAdmin后台管理框架</a>使用。
 
 ## 演示系统
 - SaaS-Admin：<a target="_blank" href="http://demo.leisoon.com">http://demo.leisoon.com</a>
@@ -13,7 +13,7 @@ LeisoonSaaS是基于thinkphp5.1开发的多租户开发框架。权限管理、�
 <a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=8bfa7fce0390385f5092ed071efc475ca91618beb969c4e76b58665dcbfc7ea1"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="LeisoonSaaS" title="LeisoonSaaS"></a>
 
 # 开源进度
-- 系统框架代码：由于是从项目中剥离需要时间整理，有需要先了解学习的同学请先加入QQ群: [13942255]
+- 系统框架代码：已完成
 - Demo站点：已完成
 - 系统文档：整理中。。。
 
@@ -35,9 +35,13 @@ LeisoonSaaS是基于thinkphp5.1开发的多租户开发框架。权限管理、�
 
 #### 使用说明
 
-1. 系统第三发插件使用composer安装
-2. xxxx
-3. xxxx
+1. composer安装依赖库和插件
+    <br>在命令行下面切换到应用根目录，执行下面命令 composer update
+1. 导入数据库
+<br>手动导入系统根目录“database”下SQL脚本文件
+1. 设置web访问
+<br>web访问目录为public/index.php(详情请参考Thinkphp5.1官方文档)
+<br>提示“{"code":1010,"msg":"未登录","time":1567657873,"data":[]}”信息说明LeisoonSaaS配置成功，请配合<a href="https://gitee.com/websky/leisoonAdmin">LeisoonAdmin后台管理框架</a>使用
 
 ## **问题反馈**
 

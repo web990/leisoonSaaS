@@ -1,0 +1,13 @@
+<textarea name="{$field}" id="{$field}" style="width: 100%;">{$value}</textarea>
+{js href="__PUBLIC__plugins/ueditor/ueditor.config.js" /}
+{js href="__PUBLIC__plugins/ueditor/ueditor.all.min.js" /}
+<script type="text/javascript">
+    $(function(){
+        var url="{:url('home/upload/ueditor')}";
+        var ue = UE.getEditor('{$field}',{
+            serverUrl :url,
+            initialFrameHeight:300,
+            topOffset:50,
+        });
+    })
+</script>
