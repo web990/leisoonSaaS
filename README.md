@@ -5,7 +5,7 @@ LeisoonSaaS是基于thinkphp5.1开发的多租户开发框架。权限管理、�
     系统采用前后端分离模式，LeisoonSaaS提供API接口（JWT token认证），配合<a href="https://gitee.com/websky/leisoonAdmin">LeisoonAdmin后台管理框架</a>使用。
 
 ## 演示系统
-- SaaS-Admin：<a target="_blank" href="http://demo.leisoon.com">http://demo.leisoon.com</a>
+- LeisoonAdmin：<a target="_blank" href="http://demo.leisoon.com">http://demo.leisoon.com</a>
 
 - 用户名：admin 密码：admin888
 - Demo 采用管理平台完全采用API接口跨域请求，通过token判断权限
@@ -52,7 +52,7 @@ QQ群: [13942255]
 
 Email: (web88#qq.com, 把#换成@)
 
-Github: 
+Github: https://github.com/web990/leisoonSaaS
 
 Gitee: https://gitee.com/websky/leisoonSaaS
 
