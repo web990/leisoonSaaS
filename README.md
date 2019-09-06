@@ -61,6 +61,8 @@ Layui：https://www.layui.com/
 
 jQuery：http://jquery.com
 
+贡献成员：Websky、小小张、小悦子、水工网孙俊、团购网邱云龙、慧慧张、3PNG张冬莉、飞翔网络杨志红等
+
 
 
 ## 版权信息
