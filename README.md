@@ -6,27 +6,14 @@ LeisoonSaaS是基于thinkphp5.1开发的多租户开发框架。权限管理、�
 
 ## 演示系统
 - LeisoonAdmin：<a target="_blank" href="http://demo.leisoon.com">http://demo.leisoon.com</a>
-
 - 用户名：admin 密码：admin888
-- Demo 采用管理平台完全采用API接口跨域请求，通过token判断权限
-- 交流QQ群: [13942255]
-<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=8bfa7fce0390385f5092ed071efc475ca91618beb969c4e76b58665dcbfc7ea1"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="LeisoonSaaS" title="LeisoonSaaS"></a>
 
 # 开源进度
 - 系统框架代码：已完成
 - Demo站点：已完成
-- 系统文档：整理中。。。
-
-
-
-#### 软件架构
-
-- 底层架构ThinkPHP5.1
-- UI管理 LayuiAdmin2.1 单页面版
-
+- 系统文档：https://www.kancloud.cn/websky/leisoon_saas （完善中。。。）
 
 #### 开发环境
-
 1. PHP >=7.0(建议7.1)
 2. MySQL >5.5 (推荐5.7)
 3. Apache / Nginx
@@ -43,6 +30,8 @@ LeisoonSaaS是基于thinkphp5.1开发的多租户开发框架。权限管理、�
 <br>web访问目录为public/index.php(详情请参考Thinkphp5.1官方文档)
 <br>提示“{"code":1010,"msg":"未登录","time":1567657873,"data":[]}”信息说明LeisoonSaaS配置成功，请配合<a href="https://gitee.com/websky/leisoonAdmin">LeisoonAdmin后台管理框架</a>使用
 
+1. 系统文档 https://www.kancloud.cn/websky/leisoon_saas 
+
 ## **问题反馈**
 
 在使用中有任何问题，请使用以下联系方式联系我们
@@ -55,6 +44,12 @@ Email: (web88#qq.com, 把#换成@)
 Github: https://github.com/web990/leisoonSaaS
 
 Gitee: https://gitee.com/websky/leisoonSaaS
+
+LeisoonAdmin Gitee: https://gitee.com/websky/leisoonAdmin
+
+LeisoonSaaS 文档：https://www.kancloud.cn/websky/leisoon_saas
+
+LeisoonAdmin 文档：https://www.kancloud.cn/websky/leisoon_admin
 
 ## **特别鸣谢**
 
