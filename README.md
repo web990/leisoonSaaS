@@ -2,18 +2,13 @@
 
 #### 介绍
 LeisoonSaaS是基于thinkphp5.1开发的多租户开发框架。权限管理、用户管理、Web站点（单站点、Web集群系统）、单点登录（第三方登录）、API管理、CRM系统、流程系统、消息系统、邮件系统、日志系统等企业内部应用系统都可以基于LeisoonSaaS一套基础平台完成，避免复杂的系统维护，让程序员从此只维护一套系统。目标让开发者快速开发、易于维护的系统平台。
-    系统采用前后端分离模式，LeisoonSaaS提供API接口（JWT token认证），配合<a href="https://gitee.com/websky/leisoonAdmin">LeisoonAdmin后台管理框架</a>使用。
+    系统采用前后端分离模式，LeisoonSaaS提供API接口（JWT token认证），配合[LeisoonAdmin后台管理框架](https://gitee.com/websky/leisoonAdmin)使用。
     
 > 提示：本框架适合有一定基础的开发人员学习使用
 
 ## 演示系统
 - LeisoonAdmin：<a target="_blank" href="http://demo.leisoon.com">http://demo.leisoon.com</a>
 - 用户名：admin 密码：admin888
-
-# 开源进度
-- 系统框架代码：已完成
-- Demo站点：已完成
-- 系统文档：https://www.kancloud.cn/websky/leisoon_saas （完善中。。。）
 
 #### 开发环境
 1. PHP >=7.0(建议7.1)
@@ -36,7 +31,11 @@ LeisoonSaaS是基于thinkphp5.1开发的多租户开发框架。权限管理、�
 - web访问目录为public/index.php(详情请参考Thinkphp5.1官方文档)
 - 提示“{"code":1010,"msg":"未登录","time":1567657873,"data":[]}”信息说明LeisoonSaaS配置成功，请配合<a href="https://gitee.com/websky/leisoonAdmin">LeisoonAdmin后台管理框架</a>使用
 
-**4、系统文档**  https://www.kancloud.cn/websky/leisoon_saas 
+**4、系统文档**  
+ - 开发文档 https://www.kancloud.cn/websky/leisoon_saas 
+ - 文档空间地址： https://apidoc.gitee.com/websky/leisoonSaaS
+
+
 
 ## **问题反馈**
 
