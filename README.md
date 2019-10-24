@@ -58,7 +58,7 @@ LeisoonAdmin 文档：https://www.kancloud.cn/websky/leisoon_admin
 
 ## **特别鸣谢**
 
-感谢以下的项目,排名不分先后
+感谢以下的项目,排名不分先后?
 
 ThinkPHP：http://www.thinkphp.cn
 
