@@ -45,11 +45,10 @@ class Website extends AdminBase
             cache('admin_config_data', null);
             $this->reSuccess($count);
         }else{
-            $group = $this->request->param('group','web');
-            $list = $this->model->where('status',1)->order('sort asc')->select();
-            $group = config('admin.config_group_list');
+            //$group = $this->request->param('group','web');
+            $list = $this->model->where('status',1)->order('sort asc')->fetchSql(0)->select();
 
-            //p(config('admin.'),1);
+            $group = config('?admin.config_group_list') ? config('admin.config_group_list') : config('config.config_group_list');
 
             $newarr=[];
             foreach ($group as $g=>$v){

@@ -28,9 +28,10 @@ class IndexBase extends Base
         parent::initialize();
 
         //读取数据库中的配置
-        //Hook::exec('app\\common\\behavior\\SetConfig','web');
+        Hook::exec('app\\common\\behavior\\SetConfig',['group'=>'web','tenant_id'=>$this->tenant_id]);
+
         //是否关闭站点
-        //$this->closweb();
+        $this->closweb();
 
         //model模型参数赋值
         if ($this->model){
@@ -42,7 +43,7 @@ class IndexBase extends Base
      * 是否关闭站点
      */
     protected function closweb(){
-        if (!config('web.close')){
+        if (!config('?web.close.0') || config('web.close.0')){
             header("Content-Type: text/html; charset=utf-8");
             die('站点已关闭，请稍后访问！');
         }

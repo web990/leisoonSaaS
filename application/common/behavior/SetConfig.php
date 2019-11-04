@@ -16,19 +16,20 @@ class SetConfig
 {
     public function run($params)
     {
+        $group = '';
+        $tenant_id=0;
+        if (is_array($params) && isset($params['tenant_id'])){
+            $tenant_id = $params['tenant_id'];
+        }
+        if (is_array($params) && isset($params['group'])){
+            $group = $params['group'];
+        }
+
         //读取数据库中的配置
-        $config = Cache::get('admin_config_data');
+        $config = Cache::get('admin_config_data_'.$group);
         if (!$config) {
-            $group = '';
-            $tenant_id=0;
-            if (is_array($params) && isset($params['tenant_id'])){
-                $tenant_id = $params['tenant_id'];
-            }
-            if (is_array($params) && isset($params['group'])){
-                $group = $params['group'];
-            }
             $config = \app\common\model\facade\Config::lists($group,$tenant_id);
-            Cache::set('admin_config_data', $config);
+            Cache::set('admin_config_data_'.$group, $config);
         }
 
         //绑定到admin数组，如：config('admin.site_title')

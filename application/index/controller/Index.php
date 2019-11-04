@@ -15,6 +15,7 @@ class Index extends IndexBase
     }
 
     public function index(){
-        return $this->redirect('admin/index/index');
+        echo 'hello word';
+        //return $this->redirect('admin/index/index');
     }
 }
