@@ -62,6 +62,6 @@ class AdminBase extends Base
         }
 
         //读取数据库中的配置
-        Hook::exec('app\\common\\behavior\\SetConfig','');
+        Hook::exec('app\\common\\behavior\\SetConfig',['group'=>'','tenant_id'=>$this->tenant_id]);
     }
 }

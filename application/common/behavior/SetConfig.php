@@ -14,12 +14,20 @@ use think\facade\Cache;
  */
 class SetConfig
 {
-    public function run($group)
+    public function run($params)
     {
         //读取数据库中的配置
         $config = Cache::get('admin_config_data');
         if (!$config) {
-            $config = \app\common\model\facade\Config::lists($group);
+            $group = '';
+            $tenant_id=0;
+            if (is_array($params) && isset($params['tenant_id'])){
+                $tenant_id = $params['tenant_id'];
+            }
+            if (is_array($params) && isset($params['group'])){
+                $group = $params['group'];
+            }
+            $config = \app\common\model\facade\Config::lists($group,$tenant_id);
             Cache::set('admin_config_data', $config);
         }
 

@@ -33,13 +33,21 @@ class AdminConfig extends BaseAdminModel {
      * @param null $group
      * @return array
      */
-    public function lists($group=null){
+    public function lists($group=null,$tenant_id=0){
         $map[] = $this->mapBuild('status',1);
         if ($group){
+            if ($group == 'web'){
+                $group = 1;
+            }
             $map[] = $this->mapBuild('group',$group);
         }
+        if ($tenant_id){
+            $map[] = $this->mapBuild('tenant_id',$tenant_id);
+            $data   = self::useGlobalScope(false)->where($map)->field('type,name,value')->select();
+        }else{
+            $data   = $this->where($map)->field('type,name,value')->select();
+        }
 
-        $data   = $this->where($map)->field('type,name,value')->select();
         $config = array();
         if($data){
             foreach ($data as $value) {

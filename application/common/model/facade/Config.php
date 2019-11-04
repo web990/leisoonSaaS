@@ -14,7 +14,7 @@ use think\Facade;
 /**
  * @see \app\admin\model\AdminConfig
  * @mixin \app\admin\model\AdminConfig
- * @method array lists(mixed $group) static 获取配置信息
+ * @method array lists(mixed $group,integer $tenant_id=0) static 获取配置信息
  *
  * @method static|null get(mixed $data, mixed $with = [], bool $cache = false, bool $failException = false) static 查找单条记录
  * @method mixed getError() static 获取错误信息
