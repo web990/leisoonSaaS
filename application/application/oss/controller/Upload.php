@@ -78,7 +78,7 @@ class Upload extends BaseOssController
                 $data['create_time'] = $oss->create_time;
                 $data['path'] = $path;
                 $data['src'] = $path;
-                $data['id'] = $oss->id;
+                $data['id'] = $oss->id;;
                 return $data;
             }else{
                 $oss->delete(true);
@@ -90,44 +90,45 @@ class Upload extends BaseOssController
             ->move($config['root_path'], true, true);
 
         if ($info){
+            //图片压缩或增加水印
+            if ((isset($config['image_compress']) && $config['image_compress']) || (isset($config['image_water']) && $config['image_water'])){
+                $pathname = '.'.str_replace("\\", '/', substr($info->getPathname(), 1));
+                $image = Image::open($pathname);
+
+                //图片压缩缩略图
+                if (isset($config['image_compress']) && $config['image_compress']){
+                    $image_compress_width = isset($config['image_compress_width']) && is_numeric($config['image_compress_width']) ? $config['image_compress_width']:0;
+                    $image_compress_height = isset($config['image_compress_height']) && is_numeric($config['image_compress_height']) ? $config['image_compress_height']:0;
+                    $image_compress_type = isset($config['image_compress_type']) && is_numeric($config['image_compress_type']) ? $config['image_compress_type']:1;
+                    if ($image->width() > $image_compress_width || $image->height() >$image_compress_height){
+                        $image->thumb($image_compress_width,$image_compress_height,$image_compress_type);
+                    }
+                }
+
+                //图片增加水印
+                if (isset($config['image_water']) && $config['image_water']){
+                    $image_water_type = isset($config['image_water_type']) ? $config['image_water_type']:'font';
+                    $image_water_path = isset($config['image_water_path']) ? $config['image_water_path']:'';
+                    $image_water_locate = isset($config['image_water_locate']) ? $config['image_water_locate']:9;
+                    $image_water_alpha = isset($config['image_water_alpha']) && is_numeric($config['image_water_alpha']) ? $config['image_water_alpha']:100;
+                    $image_water_font = isset($config['image_water_font']) ? $config['image_water_font']:Env::get('root_path').'public/font/arial.ttf';
+                    if ($image_water_type == 'image' && $image_water_path){
+                        $image->water($image_water_path,$image_water_locate,$image_water_alpha);
+                    }elseif($image_water_type == 'font' && is_file($image_water_font)){
+                        $image_water_text = isset($config['image_water_text']) ? $config['image_water_text']:'LEISOON';
+                        $size = isset($config['image_water_size']) && is_numeric($config['image_water_size']) ? $config['image_water_size']:16;
+                        $color = isset($config['image_water_color']) ? $config['image_water_color']:'#000000';
+                        $offset = isset($config['image_water_offset']) && is_numeric($config['image_water_offset']) ? $config['image_water_offset']:0;
+                        $angle = isset($config['image_water_angle']) && is_numeric($config['image_water_angle']) ? $config['image_water_angle']:0;
+                        $image->text($image_water_text,$image_water_font,$size,$color,$image_water_locate,$offset,$angle);
+                    }
+                }
+                $image->save($pathname);
+                @unlink($pathname);
+            }
+
             $return = $this->saveOss($info,$uploadType);
             if ($return){
-                //图片压缩或增加水印
-                if ((isset($config['image_compress']) && $config['image_compress']) || (isset($config['image_water']) && $config['image_water'])){
-                    $pathname = '.'.str_replace("\\", '/', substr($info->getPathname(), 1));
-                    $image = Image::open($pathname);
-
-                    //图片压缩缩略图
-                    if (isset($config['image_compress']) && $config['image_compress']){
-                        $image_compress_width = isset($config['image_compress_width']) && is_numeric($config['image_compress_width']) ? $config['image_compress_width']:0;
-                        $image_compress_height = isset($config['image_compress_height']) && is_numeric($config['image_compress_height']) ? $config['image_compress_height']:0;
-                        $image_compress_type = isset($config['image_compress_type']) && is_numeric($config['image_compress_type']) ? $config['image_compress_type']:1;
-                        if ($image->width() > $image_compress_width || $image->height() >$image_compress_height){
-                            $image->thumb($image_compress_width,$image_compress_height,$image_compress_type);
-                        }
-                    }
-
-                    //图片增加水印
-                    if (isset($config['image_water']) && $config['image_water']){
-                        $image_water_type = isset($config['image_water_type']) ? $config['image_water_type']:'font';
-                        $image_water_path = isset($config['image_water_path']) ? $config['image_water_path']:'';
-                        $image_water_locate = isset($config['image_water_locate']) ? $config['image_water_locate']:9;
-                        $image_water_alpha = isset($config['image_water_alpha']) && is_numeric($config['image_water_alpha']) ? $config['image_water_alpha']:100;
-                        $image_water_font = isset($config['image_water_font']) ? $config['image_water_font']:Env::get('root_path').'public/font/arial.ttf';
-                        if ($image_water_type == 'image' && $image_water_path){
-                            $image->water($image_water_path,$image_water_locate,$image_water_alpha);
-                        }elseif($image_water_type == 'font' && is_file($image_water_font)){
-                            $image_water_text = isset($config['image_water_text']) ? $config['image_water_text']:'LEISOON';
-                            $size = isset($config['image_water_size']) && is_numeric($config['image_water_size']) ? $config['image_water_size']:16;
-                            $color = isset($config['image_water_color']) ? $config['image_water_color']:'#000000';
-                            $offset = isset($config['image_water_offset']) && is_numeric($config['image_water_offset']) ? $config['image_water_offset']:0;
-                            $angle = isset($config['image_water_angle']) && is_numeric($config['image_water_angle']) ? $config['image_water_angle']:0;
-                            $image->text($image_water_text,$image_water_font,$size,$color,$image_water_locate,$offset,$angle);
-                        }
-                    }
-                    $image->save($pathname);
-                    @unlink($pathname);
-                }
                 return $return;
             }else{
                 $error = 'save error';
