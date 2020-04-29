@@ -36,6 +36,26 @@ function p($data=null,$die=false){
     if ($die) die();
 }
 
+
+/**
+ * @param $code
+ * @param $data
+ * @param string $msg
+ * @param int $errorCode
+ * @return \think\response\Json
+ */
+function writeJson($code, $data, $msg = 'ok', $success = true)
+{
+    $data = [
+        'code' => $code,
+        'data' => $data,
+        'msg' => $msg,
+        'success' => $success
+    ];
+
+    return json($data, $code);
+}
+
 /**
  * 判断变量是否设置并返回变量值
  * @param $value
